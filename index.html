@@ -8,28 +8,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" />
   </head>
   <body>
-    <!-- 커스텀 커서 -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-
-    <!-- 마퀴 텍스트 밴드 -->
-    <div class="marquee-band">
-      <div class="marquee-track">
-        <span>NOT FOR EVERYONE</span><span class="sep">✦</span>
-        <span>NEVER WAS</span><span class="sep">✦</span>
-        <span>thisisneverthat®</span><span class="sep">✦</span>
-        <span>25SS COLLECTION</span><span class="sep">✦</span>
-        <span>NOT FOR EVERYONE</span><span class="sep">✦</span>
-        <span>NEVER WAS</span><span class="sep">✦</span>
-        <span>thisisneverthat®</span><span class="sep">✦</span>
-        <span>25SS COLLECTION</span><span class="sep">✦</span>
-        <span>NOT FOR EVERYONE</span><span class="sep">✦</span>
-        <span>NEVER WAS</span><span class="sep">✦</span>
-        <span>thisisneverthat®</span><span class="sep">✦</span>
-        <span>25SS COLLECTION</span><span class="sep">✦</span>
-      </div>
-    </div>
-
     <header class="site-header" aria-label="Main navigation">
       <a class="brand" href="#" aria-label="thisisneverthat home">
         <img src="images/logo.png" alt="thisisneverthat" />
@@ -101,14 +79,14 @@
       <section class="collection section-pad">
         <p class="side-label">25SS&nbsp;&nbsp;COLLECTION</p>
         <div class="collection-grid">
-          <article class="feature-card">
-            <img src="images/image 152.png" alt="Model wearing a navy hooded jacket" />
+          <article class="feature-card" id="featureCard">
+            <img id="featureImg" src="images/image 152.png" alt="Model wearing a navy hooded jacket" />
           </article>
           <div class="mini-grid">
-            <img src="images/image 157.png" alt="Back view of a model wearing a black jacket" />
-            <img src="images/image 153.png" alt="Model wearing a white graphic T-shirt" />
-            <img src="images/image 163.png" alt="Model sitting in layered streetwear" />
-            <img src="images/image 162.png" alt="Model wearing a dark denim shirt" />
+            <img class="mini-thumb" src="images/image 157.png" alt="Back view of a model wearing a black jacket" />
+            <img class="mini-thumb" src="images/image 153.png" alt="Model wearing a white graphic T-shirt" />
+            <img class="mini-thumb" src="images/image 163.png" alt="Model sitting in layered streetwear" />
+            <img class="mini-thumb" src="images/image 162.png" alt="Model wearing a dark denim shirt" />
           </div>
         </div>
         <a class="view-more" href="#">View More <span aria-hidden="true">→</span></a>
@@ -226,29 +204,35 @@
       <p class="copyright">Copyright © 2010-2026. All rights reserved.</p>
     </footer>
     <script>
-    /* ── 커스텀 커서 ── */
+    /* ── 컬렉션 이미지 스왑 ── */
     (function () {
-      const dot = document.querySelector('.cursor-dot');
-      const ring = document.querySelector('.cursor-ring');
-      let mx = 0, my = 0, rx = 0, ry = 0;
+      const featureImg = document.getElementById('featureImg');
+      const thumbs = document.querySelectorAll('.mini-thumb');
 
-      document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px';
-        dot.style.top  = my + 'px';
-      });
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          if (thumb.classList.contains('active')) return;
 
-      (function animRing() {
-        rx += (mx - rx) * 0.12;
-        ry += (my - ry) * 0.12;
-        ring.style.left = rx + 'px';
-        ring.style.top  = ry + 'px';
-        requestAnimationFrame(animRing);
-      })();
+          const prevSrc = featureImg.src;
+          const prevAlt = featureImg.alt;
 
-      document.querySelectorAll('a, button, .trend-card, .product-card, .feature-card, .view-more').forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+          // 페이드 아웃
+          featureImg.classList.add('swapping');
+
+          setTimeout(() => {
+            // 이미지 교체
+            featureImg.src = thumb.src;
+            featureImg.alt = thumb.alt;
+            thumb.src = prevSrc;
+            thumb.alt = prevAlt;
+
+            // 페이드 인
+            featureImg.classList.remove('swapping');
+          }, 300);
+
+          thumbs.forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
       });
     })();
 

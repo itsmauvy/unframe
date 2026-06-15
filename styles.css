@@ -1,70 +1,3 @@
-/* ── 커스텀 커서 ── */
-* { cursor: none !important; }
-
-.cursor-dot {
-  background: #fff;
-  border-radius: 50%;
-  height: 6px;
-  left: 0; top: 0;
-  pointer-events: none;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  transition: transform 0.08s ease, background 0.2s ease, width 0.2s ease, height 0.2s ease;
-  width: 6px;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-.cursor-ring {
-  border: 1.5px solid rgba(255,255,255,0.6);
-  border-radius: 50%;
-  height: 36px;
-  left: 0; top: 0;
-  pointer-events: none;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  transition: transform 0.18s cubic-bezier(0.23,1,0.32,1), width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-  width: 36px;
-  z-index: 9998;
-  mix-blend-mode: difference;
-}
-
-body.cursor-hover .cursor-dot {
-  width: 10px; height: 10px;
-}
-body.cursor-hover .cursor-ring {
-  width: 56px; height: 56px;
-  border-color: rgba(255,255,255,0.9);
-}
-
-/* ── 마퀴 밴드 ── */
-.marquee-band {
-  background: #fff;
-  color: #111;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  overflow: hidden;
-  padding: 10px 0;
-  position: relative;
-  white-space: nowrap;
-  z-index: 5;
-}
-
-.marquee-track {
-  display: inline-flex;
-  gap: 0;
-  animation: marquee 22s linear infinite;
-}
-
-.marquee-track span { padding: 0 32px; }
-.marquee-track .sep { color: #888; padding: 0 4px; }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
 /* ── 스크롤 리빌 ── */
 .reveal {
   opacity: 0;
@@ -83,15 +16,29 @@ body.cursor-hover .cursor-ring {
   will-change: transform;
 }
 
-/* ── 컬렉션 이미지 호버 줌 ── */
+/* ── 컬렉션 이미지 호버 줌 & 스왑 ── */
 .feature-card img,
 .mini-grid img {
-  transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease;
+  transition: transform 0.6s cubic-bezier(0.23,1,0.32,1), filter 0.4s ease, opacity 0.35s ease;
 }
-.feature-card:hover img,
-.mini-grid img:hover {
+.feature-card:hover img {
   filter: brightness(1.08) contrast(1.04);
   transform: scale(1.04);
+}
+.mini-thumb {
+  cursor: pointer;
+}
+.mini-thumb:hover {
+  filter: brightness(1.12);
+  transform: scale(1.04);
+}
+.mini-thumb.active {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+#featureImg.swapping {
+  opacity: 0;
+  transform: scale(1.03);
 }
 
 /* ── 트렌드 카드 호버 ── */
@@ -478,6 +425,11 @@ video {
   object-fit: contain;
   width: 100%;
   padding: 16px;
+  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
 }
 
 .trend {
