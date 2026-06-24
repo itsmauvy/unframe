@@ -88,6 +88,8 @@
   --text: #f4f4f4;
   --muted: #9b9b9b;
   --line: #3d3d3d;
+  --site-max: 1550px;
+  --site-pad: clamp(22px, 4vw, 72px);
 }
 
 * {
@@ -98,7 +100,7 @@ html {
   background: var(--bg);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 body {
@@ -122,29 +124,30 @@ video {
   flex-direction: column;
   align-items: center;
   left: 0;
-  padding: 28px 9.4vw 0;
+  padding: 34px var(--site-pad) 0;
   position: absolute;
   right: 0;
   top: 0;
   z-index: 10;
-  gap: 14px;
+  gap: 18px;
 }
 
 .brand {
-  width: clamp(140px, 19vw, 364px);
+  width: clamp(240px, 23vw, 440px);
 }
 
 .site-header-bottom {
   display: flex;
   align-items: center;
+  max-width: var(--site-max);
   width: 100%;
 }
 
 .nav {
   align-items: center;
   display: flex;
-  font-size: clamp(12px, 0.85vw, 17px);
-  font-weight: 700;
+  font-size: clamp(15px, 0.98vw, 20px);
+  font-weight: 800;
   gap: clamp(24px, 4.4vw, 100px);
   letter-spacing: 0;
   white-space: nowrap;
@@ -156,13 +159,17 @@ video {
 }
 
 .nav-item {
+  margin: -18px -18px 0;
+  padding: 18px 18px 34px;
   position: relative;
 }
 
 .nav-item > a {
   display: block;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
   position: relative;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .nav-item > a::after {
@@ -182,65 +189,120 @@ video {
   transform: scaleX(1);
 }
 
+.nav-item:hover > a {
+  color: #fff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.38);
+  transform: translateY(-2px);
+}
+
 .dropdown {
-  background: rgba(10, 10, 10, 0.92);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  left: 0;
-  min-width: 160px;
+  background: rgba(8, 8, 8, 0.96);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 18px 22px 0 rgba(255, 255, 255, 0.08), 0 26px 70px rgba(0, 0, 0, 0.42);
+  left: 18px;
+  min-width: 236px;
   opacity: 0;
-  padding: 18px 0 14px;
+  padding: 22px 0 20px;
   pointer-events: none;
   position: absolute;
-  top: 100%;
-  padding-top: 28px;
-  transform: translateY(-6px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  transition-delay: 0s;
+  top: calc(100% - 18px);
+  transform: translateY(-10px) skewX(-2deg);
+  transition: opacity 0.22s ease 0.12s, transform 0.22s ease 0.12s, visibility 0s linear 0.34s;
+  visibility: hidden;
   z-index: 100;
 }
 
 .nav-item:hover .dropdown {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateY(0) skewX(0);
   transition-delay: 0s;
+  visibility: visible;
 }
 
 .dropdown::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 16px;
   background: transparent;
+  content: '';
+  height: 54px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: -54px;
 }
 
 .dropdown a {
-  color: #ccc;
+  color: rgba(255, 255, 255, 0.72);
   display: block;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 8px 22px;
-  transition: color 0.15s ease, padding-left 0.15s ease;
+  font-size: clamp(15px, 0.9vw, 18px);
+  font-weight: 800;
+  letter-spacing: 0;
+  padding: 11px 28px;
+  position: relative;
+  transition: color 0.18s ease, padding-left 0.18s ease, background 0.18s ease;
   white-space: nowrap;
 }
 
+.dropdown a::before {
+  background: #fff;
+  content: '';
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.18s ease, width 0.18s ease;
+  width: 0;
+}
+
 .dropdown a:hover {
+  background: rgba(255, 255, 255, 0.055);
   color: #fff;
-  padding-left: 28px;
+  padding-left: 46px;
+}
+
+.dropdown a:hover::before {
+  opacity: 1;
+  width: 26px;
 }
 
 .nav-icons {
-  gap: clamp(16px, 1.8vw, 32px);
+  gap: clamp(18px, 1.45vw, 28px);
   margin-left: auto;
 }
 
+.nav-icons a {
+  align-items: center;
+  display: inline-flex;
+  height: 34px;
+  justify-content: center;
+  opacity: 0.82;
+  padding: 6px;
+  transition: opacity 0.22s ease, transform 0.22s ease, filter 0.22s ease;
+  width: 34px;
+}
+
 .nav-icons img {
+  display: block;
   height: 21px;
   object-fit: contain;
   width: 21px;
+}
+
+.nav-icons a:hover {
+  filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.38));
+  opacity: 1;
+  transform: translateY(-2px) scale(1.12);
+}
+
+.content-empty main,
+.empty-main {
+  background: #111;
+  min-height: calc(100vh - 220px);
+}
+
+.content-empty main > section {
+  display: none;
 }
 
 .hero {
@@ -296,8 +358,12 @@ video {
 }
 
 .section-pad {
-  padding-left: 7.2vw;
-  padding-right: 7.2vw;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--site-max);
+  padding-left: var(--site-pad);
+  padding-right: var(--site-pad);
+  width: 100%;
 }
 
 .collection {
@@ -380,8 +446,12 @@ video {
 
 .starbucks-content {
   inset: 0;
-  padding: 65px 7.2vw 45px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--site-max);
+  padding: 65px var(--site-pad) 45px;
   position: absolute;
+  width: 100%;
 }
 
 .starbucks-logo-wrap {
@@ -406,9 +476,9 @@ video {
   display: grid;
   gap: clamp(30px, 3.3vw, 70px);
   grid-template-columns: repeat(3, minmax(180px, 1fr));
-  left: 21.5vw;
+  left: clamp(280px, 22vw, 390px);
   position: absolute;
-  right: 7.2vw;
+  right: var(--site-pad);
 }
 
 .product-card {
@@ -531,9 +601,13 @@ video {
   display: grid;
   gap: 40px 70px;
   grid-template-columns: 0.8fr 1.55fr 0.75fr;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--site-max);
   min-height: 410px;
-  padding: 63px 7.2vw 48px;
+  padding: 63px var(--site-pad) 48px;
   position: relative;
+  width: 100%;
 }
 
 .footer-brand img {
