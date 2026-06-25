@@ -7,61 +7,192 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" />
   </head>
-  <body class="content-empty">
+  <body class="home-page">
     <header class="site-header" aria-label="Main navigation">
-      <a class="brand" href="#" aria-label="UNFRAME home">
+      <a class="brand" href="index.html" aria-label="UNFRAME home">
         <img src="images/logo.png" alt="UNFRAME" />
       </a>
       <div class="site-header-bottom">
         <nav class="nav nav-left">
           <div class="nav-item">
-            <a href="#">ABOUT US</a>
+            <a href="board-list.html">ABOUT US</a>
             <div class="dropdown">
-              <a href="#">Brand Story</a>
-              <a href="#">News</a>
-              <a href="#">Lookbook</a>
+              <a href="board-view.html">Brand Story</a>
+              <a href="board-list.html">News</a>
+              <a href="board-list.html">Lookbook</a>
             </div>
           </div>
           <div class="nav-item">
-            <a href="#">SHOP</a>
+            <a href="product-list.html">SHOP</a>
             <div class="dropdown">
-              <a href="#">New Arrivals</a>
-              <a href="#">Best Sellers</a>
-              <a href="#">Outerwear</a>
-              <a href="#">Tops</a>
-              <a href="#">Bottoms</a>
-              <a href="#">Accessories</a>
-              <a href="#">Sale</a>
+              <a href="product-list.html">New Arrivals</a>
+              <a href="product-list.html">Best Sellers</a>
+              <a href="product-list.html">Outerwear</a>
+              <a href="product-list.html">Tops</a>
+              <a href="product-list.html">Bottoms</a>
+              <a href="product-list.html">Accessories</a>
+              <a href="product-list.html">Sale</a>
             </div>
           </div>
           <div class="nav-item">
-            <a href="#">COLLECTION</a>
+            <a href="board-list.html">COLLECTION</a>
             <div class="dropdown">
-              <a href="#">25SS</a>
-              <a href="#">25FW</a>
-              <a href="#">Collaboration</a>
-              <a href="#">Archive</a>
+              <a href="board-list.html">25SS</a>
+              <a href="board-list.html">25FW</a>
+              <a href="board-list.html">Collaboration</a>
+              <a href="board-list.html">Archive</a>
             </div>
           </div>
           <div class="nav-item">
-            <a href="#">STORES</a>
+            <a href="board-view.html">STORES</a>
             <div class="dropdown">
-              <a href="#">Seoul</a>
-              <a href="#">Japan</a>
-              <a href="#">Online</a>
+              <a href="board-view.html">Seoul</a>
+              <a href="board-view.html">Japan</a>
+              <a href="index.html">Online</a>
             </div>
           </div>
         </nav>
         <nav class="nav nav-icons" aria-label="Utility navigation">
-          <a href="#" aria-label="Language"><img src="images/Globe.png" alt="" /></a>
-          <a href="#" aria-label="Search"><img src="images/Search.png" alt="" /></a>
-          <a href="#" aria-label="Cart"><img src="images/Shopping cart.png" alt="" /></a>
-          <a href="#" aria-label="Account"><img src="images/User.png" alt="" /></a>
+          <a href="index.html" aria-label="Language"><img src="images/Globe.png" alt="" /></a>
+          <a href="product-list.html" aria-label="Search"><img src="images/Search.png" alt="" /></a>
+          <a href="cart.html" aria-label="Cart"><img src="images/Shopping cart.png" alt="" /></a>
+          <a href="login.html" aria-label="Account"><img src="images/User.png" alt="" /></a>
         </nav>
       </div>
     </header>
 
-    <main class="empty-main" aria-label="Empty content area"></main>
+    <main class="home-main" aria-label="Main content">
+      <section class="home-hero hype-hero">
+        <div class="hero-campaign visual-slot">
+          <div class="hero-copy">
+            <p>DRESS BEYOND THE RULES</p>
+            <h1>BREAK<br />THE FRAME</h1>
+            <strong>OWN THE STREET</strong>
+          </div>
+        </div>
+        <aside class="hero-shop-panel" aria-label="Featured products">
+          <div class="hero-rail-window">
+            <div class="hero-product-stack">
+              <a class="hero-product-slot visual-slot" href="product-detail.html"><img src="images/item01.png" alt="Featured item 01" /></a>
+              <a class="hero-product-slot visual-slot" href="product-detail.html"><img src="images/item02.png" alt="Featured item 02" /></a>
+              <a class="hero-product-slot visual-slot" href="product-detail.html"><img src="images/item03.png" alt="Featured item 03" /></a>
+              <a class="hero-product-slot visual-slot" href="product-detail.html" aria-hidden="true" tabindex="-1"><img src="images/item01.png" alt="" /></a>
+              <a class="hero-product-slot visual-slot" href="product-detail.html" aria-hidden="true" tabindex="-1"><img src="images/item02.png" alt="" /></a>
+              <a class="hero-product-slot visual-slot" href="product-detail.html" aria-hidden="true" tabindex="-1"><img src="images/item03.png" alt="" /></a>
+            </div>
+          </div>
+          <a class="hero-shop-now" href="product-list.html">
+            <span>SHOP</span>
+            <span>NOW ↗</span>
+          </a>
+        </aside>
+      </section>
+
+      <section class="home-intro section-pad">
+        <div>
+          <p>ABOUT</p>
+          <h2>
+            <span>UN/FRAME CREATES EVERYDAY STREETWEAR</span>
+            <span>FOR THOSE WHO MOVE BEYOND THE EXPECTED.</span>
+          </h2>
+          <span>FUNCTIONAL, VERSATILE, AND MADE TO BE WORN YOUR WAY.</span>
+        </div>
+        <a href="board-view.html">BRAND STORY</a>
+      </section>
+
+      <section class="home-collection section-pad">
+        <div class="section-title-row">
+          <h2>BEST SELLER</h2>
+          <a class="view-more" href="board-list.html">VIEW MORE <span>+</span></a>
+        </div>
+        <div class="collection-product-grid">
+          <a class="collection-product-card" href="product-detail.html">
+            <div class="collection-product-image"><img src="images/item01.png" alt="Studio Polo" /></div>
+            <strong>STUDIO POLO</strong>
+            <span>$49.00</span>
+          </a>
+          <a class="collection-product-card" href="product-detail.html">
+            <div class="collection-product-image"><img src="images/item02.png" alt="Utility Crewneck" /></div>
+            <strong>UTILITY CREWNECK</strong>
+            <span>$69.00</span>
+          </a>
+          <a class="collection-product-card" href="product-detail.html">
+            <div class="collection-product-image"><img src="images/item03.png" alt="System Tee" /></div>
+            <strong>SYSTEM TEE</strong>
+            <span>$39.00</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-category section-pad">
+        <div class="section-title-row">
+          <h2>CATEGORY</h2>
+          <a class="view-more" href="product-list.html">VIEW ALL <span>+</span></a>
+        </div>
+        <div class="category-collage">
+          <a class="category-tile category-tile-large" href="product-list.html">
+            <div class="category-image"><img src="images/outerwear.jpg" alt="Outerwear" /></div>
+            <span>01</span>
+            <strong>OUTERWEAR</strong>
+          </a>
+          <a class="category-tile category-tile-tall" href="product-list.html">
+            <div class="category-image"><img src="images/tops.jpg" alt="Tops" /></div>
+            <span>02</span>
+            <strong>TOPS</strong>
+          </a>
+          <a class="category-tile" href="product-list.html">
+            <div class="category-image"><img src="images/bottom.jpg" alt="Bottoms" /></div>
+            <span>03</span>
+            <strong>BOTTOMS</strong>
+          </a>
+          <a class="category-tile" href="product-list.html">
+            <div class="category-image"><img src="images/accessories.jpg" alt="Accessories" /></div>
+            <span>04</span>
+            <strong>ACCESSORIES</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-lookbook">
+        <div class="section-title-row">
+          <h2>LOOKBOOK</h2>
+          <div class="arrows lookbook-arrows">
+            <button type="button" aria-label="Previous lookbook" data-lookbook-prev>‹</button>
+            <button type="button" aria-label="Next lookbook" data-lookbook-next>›</button>
+          </div>
+        </div>
+        <div class="lookbook-viewport" data-lookbook-viewport>
+          <div class="lookbook-row" data-lookbook-track>
+            <a class="lookbook-card" href="board-view.html">
+              <div class="lookbook-image"></div>
+              <span>25SS</span>
+              <strong>FIELD DAY</strong>
+            </a>
+            <a class="lookbook-card" href="board-view.html">
+              <div class="lookbook-image"></div>
+              <span>DROP 01</span>
+              <strong>OPEN AIR</strong>
+            </a>
+            <a class="lookbook-card" href="board-view.html">
+              <div class="lookbook-image"></div>
+              <span>ARCHIVE</span>
+              <strong>CARGO STUDY</strong>
+            </a>
+            <a class="lookbook-card" href="board-view.html">
+              <div class="lookbook-image"></div>
+              <span>EDITORIAL</span>
+              <strong>WIDE ROUTE</strong>
+            </a>
+            <a class="lookbook-card" href="board-view.html">
+              <div class="lookbook-image"></div>
+              <span>STYLING</span>
+              <strong>LAYER NOTES</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
 
     <footer class="footer">
       <div class="footer-brand">
@@ -80,12 +211,12 @@
           </dl>
         </div>
         <div class="footer-links">
-          <a href="#">FAQ</a>
-          <a href="#">POLICY</a>
-          <a href="#">SHIPPING &amp; RETURNS</a>
-          <a href="#">STORES</a>
-          <a href="#">CONTACT</a>
-          <a href="#">MEMBERSHIP</a>
+          <a href="board-list.html">FAQ</a>
+          <a href="board-view.html">POLICY</a>
+          <a href="board-view.html">SHIPPING &amp; RETURNS</a>
+          <a href="board-view.html">STORES</a>
+          <a href="board-write.html">CONTACT</a>
+          <a href="join.html">MEMBERSHIP</a>
         </div>
         <div>
           <h3>SOCIAL</h3>
@@ -113,5 +244,83 @@
       </address>
       <p class="copyright">Copyright © 2026 UNFRAME. All rights reserved.</p>
     </footer>
+    <script>
+      (() => {
+        const viewport = document.querySelector('[data-lookbook-viewport]');
+        const track = document.querySelector('[data-lookbook-track]');
+        const prev = document.querySelector('[data-lookbook-prev]');
+        const next = document.querySelector('[data-lookbook-next]');
+        if (!viewport || !track || !prev || !next) return;
+
+        let current = 0;
+        let startX = 0;
+        let startOffset = 0;
+        let dragging = false;
+        let didDrag = false;
+
+        const maxOffset = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+        const clamp = value => Math.max(0, Math.min(value, maxOffset()));
+        const cardStep = () => {
+          const card = track.querySelector('.lookbook-card');
+          const gap = parseFloat(getComputedStyle(track).columnGap || 0);
+          return card ? card.getBoundingClientRect().width + gap : viewport.clientWidth;
+        };
+        const render = (animate = true) => {
+          track.style.transition = animate ? 'transform 0.45s cubic-bezier(0.23, 1, 0.32, 1)' : 'none';
+          track.style.transform = `translate3d(${-current}px, 0, 0)`;
+        };
+        const moveBy = amount => {
+          current = clamp(current + amount);
+          render(true);
+        };
+
+        next.addEventListener('click', event => {
+          event.preventDefault();
+          moveBy(cardStep());
+        });
+        prev.addEventListener('click', event => {
+          event.preventDefault();
+          moveBy(-cardStep());
+        });
+
+        viewport.addEventListener('pointerdown', event => {
+          dragging = true;
+          didDrag = false;
+          startX = event.clientX;
+          startOffset = current;
+          viewport.setPointerCapture(event.pointerId);
+          viewport.classList.add('is-dragging');
+          render(false);
+        });
+
+        viewport.addEventListener('pointermove', event => {
+          if (!dragging) return;
+          const delta = startX - event.clientX;
+          if (Math.abs(delta) > 4) didDrag = true;
+          current = clamp(startOffset + delta);
+          render(false);
+        });
+
+        const endDrag = event => {
+          if (!dragging) return;
+          dragging = false;
+          viewport.classList.remove('is-dragging');
+          try { viewport.releasePointerCapture(event.pointerId); } catch (error) {}
+          render(true);
+        };
+
+        viewport.addEventListener('pointerup', endDrag);
+        viewport.addEventListener('pointercancel', endDrag);
+        track.addEventListener('click', event => {
+          if (!didDrag) return;
+          event.preventDefault();
+          didDrag = false;
+        }, true);
+        window.addEventListener('resize', () => {
+          current = clamp(current);
+          render(false);
+        });
+      })();
+    </script>
   </body>
 </html>
