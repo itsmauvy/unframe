@@ -53,3 +53,41 @@
   // No separate results page — just surface the box.
   form.addEventListener('submit', event => event.preventDefault());
 })();
+
+(() => {
+  const header = document.querySelector('.site-header');
+  const headerBottom = header?.querySelector('.site-header-bottom');
+  const nav = header?.querySelector('.nav-left');
+  if (!header || !headerBottom || !nav) return;
+
+  const button = document.createElement('button');
+  button.className = 'mobile-menu-toggle';
+  button.type = 'button';
+  button.setAttribute('aria-label', 'Open menu');
+  button.setAttribute('aria-expanded', 'false');
+  button.innerHTML = '<i aria-hidden="true"></i><span>MENU</span>';
+  headerBottom.insertBefore(button, nav);
+
+  const setOpen = open => {
+    header.classList.toggle('is-mobile-menu-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    button.querySelector('span').textContent = open ? 'CLOSE' : 'MENU';
+  };
+
+  button.addEventListener('click', () => {
+    setOpen(!header.classList.contains('is-mobile-menu-open'));
+  });
+
+  nav.addEventListener('click', event => {
+    if (event.target.closest('a')) setOpen(false);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setOpen(false);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 720) setOpen(false);
+  });
+})();
