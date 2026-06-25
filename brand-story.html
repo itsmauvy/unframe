@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UNFRAME | Board View</title>
+    <title>UNFRAME | Brand Story</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="inner-page board-view-page">
+  <body class="inner-page brand-story-page">
     <header class="site-header" aria-label="Main navigation">
       <a class="brand" href="index.html" aria-label="UNFRAME home">
         <img src="images/logo.png" alt="UNFRAME" />
@@ -50,61 +50,58 @@
         </nav>
       </div>
     </header>
+    <main class="brand-story-shell" aria-label="Brand story">
+      <section class="brand-story-hero">
+        <span>BRAND PHILOSOPHY</span>
+        <h1>UN/FRAME</h1>
+        <p>
+          BUILT FOR THE SPACE BETWEEN ROUTINE AND MOVEMENT.<br />
+          DAILY STREETWEAR WITH FUNCTION, TENSION, AND ROOM TO SHIFT.
+        </p>
+      </section>
 
-    <main class="board-view-shell">
-      <div class="board-view-label">NOTICE</div>
-      <article class="board-view-article">
-        <header class="board-view-header">
-          <h1>UNFRAME 25SS COLLECTION OPEN</h1>
-          <dl>
-            <div>
-              <dt>WRITER</dt>
-              <dd>UNFRAME</dd>
-            </div>
-            <div>
-              <dt>DATE</dt>
-              <dd>2026.06.25</dd>
-            </div>
-            <div>
-              <dt>HIT</dt>
-              <dd>128</dd>
-            </div>
-          </dl>
-        </header>
-
-        <div class="board-view-content">
-          <img src="images/Rectangle 34625187.png" alt="" />
+      <section class="brand-story-panel" aria-label="UNFRAME story">
+        <div class="brand-story-image">
+          <img src="images/about.jpg" alt="UNFRAME brand campaign" />
+        </div>
+        <div class="brand-story-copy">
+          <span class="brand-story-mark">01 / 04</span>
+          <h2>OUTSIDE<br />THE SET FRAME</h2>
           <p>
-            UNFRAME 25SS collection is now available online. This layout is prepared for Cafe24 board detail pages,
-            including notices, lookbooks, store guides, and customer information.
+            UN/FRAME STARTS FROM CLOTHES THAT DO NOT ASK THE WEARER<br />
+            TO STAY IN ONE MODE. OUR PIECES ARE BUILT AROUND MOVEMENT,<br />
+            LAYERING, AND THE SMALL DECISIONS THAT SHAPE A DAY.
           </p>
-          <p>
-            Replace this area with Cafe24 board content modules later. The spacing, title area, meta information,
-            image block, and action buttons are already structured for a clean storefront board page.
-          </p>
+          <div class="brand-story-accordion">
+            <details>
+              <summary><span>02</span> FUNCTIONAL CUTS</summary>
+              <p>Patterns are shaped for motion, layering, and daily wear instead of fixed styling rules.</p>
+            </details>
+            <details>
+              <summary><span>03</span> EVERYDAY UTILITY</summary>
+              <p>Pockets, fabric weight, and proportions are chosen to support repeated use across the week.</p>
+            </details>
+            <details>
+              <summary><span>04</span> UNFIXED SILHOUETTES</summary>
+              <p>Each piece is designed to shift between street, work, and off-duty routines without changing character.</p>
+            </details>
+          </div>
+          <a href="product-list.html">SHOP ALL <span>→</span></a>
         </div>
-
-        <div class="board-view-files">
-          <span>ATTACHMENT</span>
-          <a href="board-view.html">unframe-25ss-guide.pdf</a>
-        </div>
-
-        <nav class="board-view-pager" aria-label="Post navigation">
-          <a href="board-view.html"><span>PREV</span><strong>SEONGSU SHOWROOM GUIDE</strong></a>
-          <a href="board-view.html"><span>NEXT</span><strong>SHIPPING &amp; RETURNS POLICY</strong></a>
-        </nav>
-
-        <div class="board-view-actions">
-          <a href="board-list.html">LIST</a>
-          <a href="board-write.html">WRITE</a>
-          <a href="board-write.html">MODIFY</a>
-        </div>
-      </article>
+      </section>
     </main>
-
-    <footer class="footer compact-footer">
-      <div class="footer-brand"><img src="images/logo.png" alt="UNFRAME" /></div>
-      <p class="copyright">Copyright © 2026 UNFRAME. All rights reserved.</p>
-    </footer>
+    <script>
+      (() => {
+        const items = document.querySelectorAll('.brand-story-accordion details');
+        items.forEach(item => {
+          item.addEventListener('toggle', () => {
+            if (!item.open) return;
+            items.forEach(other => {
+              if (other !== item) other.open = false;
+            });
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

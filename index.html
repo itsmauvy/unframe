@@ -17,32 +17,23 @@
           <div class="nav-item">
             <a href="board-list.html">ABOUT US</a>
             <div class="dropdown">
-              <a href="board-view.html">Brand Story</a>
-              <a href="board-list.html">News</a>
-              <a href="board-list.html">Lookbook</a>
+              <a href="brand-story.html">Brand Story</a>
+              <a href="board-list.html">Board</a>
             </div>
           </div>
           <div class="nav-item">
             <a href="product-list.html">SHOP</a>
             <div class="dropdown">
-              <a href="product-list.html">New Arrivals</a>
-              <a href="product-list.html">Best Sellers</a>
-              <a href="product-list.html">Outerwear</a>
-              <a href="product-list.html">Tops</a>
-              <a href="product-list.html">Bottoms</a>
-              <a href="product-list.html">Accessories</a>
-              <a href="product-list.html">Sale</a>
+              <a href="product-list.html#new">New Arrivals</a>
+              <a href="product-list.html#best">Best Sellers</a>
+              <a href="product-list.html#outerwear">Outerwear</a>
+              <a href="product-list.html#tops">Tops</a>
+              <a href="product-list.html#bottoms">Bottoms</a>
+              <a href="product-list.html#accessories">Accessories</a>
+              <a href="product-list.html#sale">Sale</a>
             </div>
           </div>
-          <div class="nav-item">
-            <a href="board-list.html">COLLECTION</a>
-            <div class="dropdown">
-              <a href="board-list.html">25SS</a>
-              <a href="board-list.html">25FW</a>
-              <a href="board-list.html">Collaboration</a>
-              <a href="board-list.html">Archive</a>
-            </div>
-          </div>
+          <div class="nav-item"><a href="collection.html">COLLECTION</a><div class="dropdown"><a href="collection.html#25ss">25SS</a><a href="collection.html#25fw">25FW</a><a href="collection.html#collaboration">Collaboration</a><a href="collection.html#archive">Archive</a></div></div>
           <div class="nav-item">
             <a href="board-view.html">STORES</a>
             <div class="dropdown">
@@ -54,7 +45,7 @@
         </nav>
         <nav class="nav nav-icons" aria-label="Utility navigation">
           <a href="index.html" aria-label="Language"><img src="images/Globe.png" alt="" /></a>
-          <a href="product-list.html" aria-label="Search"><img src="images/Search.png" alt="" /></a>
+          <a href="search.html" aria-label="Search"><img src="images/Search.png" alt="" /></a>
           <a href="cart.html" aria-label="Cart"><img src="images/Shopping cart.png" alt="" /></a>
           <a href="login.html" aria-label="Account"><img src="images/User.png" alt="" /></a>
         </nav>
@@ -97,29 +88,29 @@
           </h2>
           <span>FUNCTIONAL, VERSATILE, AND MADE TO BE WORN YOUR WAY.</span>
         </div>
-        <a href="board-view.html">BRAND STORY</a>
+        <a href="brand-story.html">BRAND STORY</a>
       </section>
 
       <section class="home-collection section-pad">
         <div class="section-title-row">
           <h2>BEST SELLER</h2>
-          <a class="view-more" href="board-list.html">VIEW MORE <span>+</span></a>
+          <a class="view-more" href="product-list.html#best">VIEW MORE <span>+</span></a>
         </div>
         <div class="collection-product-grid">
           <a class="collection-product-card" href="product-detail.html">
             <div class="collection-product-image"><img src="images/item01.png" alt="Studio Polo" /></div>
             <strong>STUDIO POLO</strong>
-            <span>$49.00</span>
+            <span>KRW 69,000</span>
           </a>
           <a class="collection-product-card" href="product-detail.html">
             <div class="collection-product-image"><img src="images/item02.png" alt="Utility Crewneck" /></div>
             <strong>UTILITY CREWNECK</strong>
-            <span>$69.00</span>
+            <span>KRW 96,000</span>
           </a>
           <a class="collection-product-card" href="product-detail.html">
             <div class="collection-product-image"><img src="images/item03.png" alt="System Tee" /></div>
             <strong>SYSTEM TEE</strong>
-            <span>$39.00</span>
+            <span>KRW 54,000</span>
           </a>
         </div>
       </section>
@@ -164,27 +155,27 @@
         <div class="lookbook-viewport" data-lookbook-viewport>
           <div class="lookbook-row" data-lookbook-track>
             <a class="lookbook-card" href="board-view.html">
-              <div class="lookbook-image"></div>
+              <div class="lookbook-image"><img src="images/lookbook1.jpg" alt="Field Day lookbook" /></div>
               <span>25SS</span>
               <strong>FIELD DAY</strong>
             </a>
             <a class="lookbook-card" href="board-view.html">
-              <div class="lookbook-image"></div>
+              <div class="lookbook-image"><img src="images/lookbook2.jpg" alt="Open Air lookbook" /></div>
               <span>DROP 01</span>
               <strong>OPEN AIR</strong>
             </a>
             <a class="lookbook-card" href="board-view.html">
-              <div class="lookbook-image"></div>
+              <div class="lookbook-image"><img src="images/lookbook3.jpg" alt="Cargo Study lookbook" /></div>
               <span>ARCHIVE</span>
               <strong>CARGO STUDY</strong>
             </a>
             <a class="lookbook-card" href="board-view.html">
-              <div class="lookbook-image"></div>
+              <div class="lookbook-image"><img src="images/lookbook4.jpg" alt="Wide Route lookbook" /></div>
               <span>EDITORIAL</span>
               <strong>WIDE ROUTE</strong>
             </a>
             <a class="lookbook-card" href="board-view.html">
-              <div class="lookbook-image"></div>
+              <div class="lookbook-image"><img src="images/lookbook5.jpg" alt="Layer Notes lookbook" /></div>
               <span>STYLING</span>
               <strong>LAYER NOTES</strong>
             </a>
@@ -252,26 +243,55 @@
         const next = document.querySelector('[data-lookbook-next]');
         if (!viewport || !track || !prev || !next) return;
 
-        let current = 0;
         let startX = 0;
-        let startOffset = 0;
+        let startScroll = 0;
         let dragging = false;
         let didDrag = false;
+        let setWidth = 0;
+        let wrapping = false;
 
-        const maxOffset = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
-        const clamp = value => Math.max(0, Math.min(value, maxOffset()));
+        const cloneSet = direction => {
+          const clones = [...track.children].reduce((items, card) => {
+            if (card.dataset.clone) return items;
+            const clone = card.cloneNode(true);
+            clone.dataset.clone = direction;
+            clone.setAttribute('aria-hidden', 'true');
+            clone.tabIndex = -1;
+            items.push(clone);
+            return items;
+          }, []);
+          track[direction === 'before' ? 'prepend' : 'append'](...clones);
+        };
+        const measure = () => {
+          setWidth = track.scrollWidth / 3;
+        };
+        const jumpTo = left => {
+          wrapping = true;
+          viewport.classList.add('is-wrapping');
+          viewport.scrollLeft = left;
+          requestAnimationFrame(() => {
+            viewport.classList.remove('is-wrapping');
+            wrapping = false;
+          });
+        };
+        const wrapScroll = () => {
+          if (!setWidth || wrapping) return;
+          if (viewport.scrollLeft < setWidth * 0.35) {
+            if (dragging) startScroll += setWidth;
+            jumpTo(viewport.scrollLeft + setWidth);
+          } else if (viewport.scrollLeft > setWidth * 1.65) {
+            if (dragging) startScroll -= setWidth;
+            jumpTo(viewport.scrollLeft - setWidth);
+          }
+        };
+
         const cardStep = () => {
           const card = track.querySelector('.lookbook-card');
           const gap = parseFloat(getComputedStyle(track).columnGap || 0);
           return card ? card.getBoundingClientRect().width + gap : viewport.clientWidth;
         };
-        const render = (animate = true) => {
-          track.style.transition = animate ? 'transform 0.45s cubic-bezier(0.23, 1, 0.32, 1)' : 'none';
-          track.style.transform = `translate3d(${-current}px, 0, 0)`;
-        };
         const moveBy = amount => {
-          current = clamp(current + amount);
-          render(true);
+          viewport.scrollBy({ left: amount, behavior: 'smooth' });
         };
 
         next.addEventListener('click', event => {
@@ -282,23 +302,25 @@
           event.preventDefault();
           moveBy(-cardStep());
         });
+        viewport.addEventListener('dragstart', event => event.preventDefault());
+        viewport.addEventListener('scroll', wrapScroll);
 
         viewport.addEventListener('pointerdown', event => {
+          if (event.button !== 0) return;
           dragging = true;
           didDrag = false;
           startX = event.clientX;
-          startOffset = current;
+          startScroll = viewport.scrollLeft;
           viewport.setPointerCapture(event.pointerId);
           viewport.classList.add('is-dragging');
-          render(false);
         });
 
         viewport.addEventListener('pointermove', event => {
           if (!dragging) return;
           const delta = startX - event.clientX;
           if (Math.abs(delta) > 4) didDrag = true;
-          current = clamp(startOffset + delta);
-          render(false);
+          if (didDrag) event.preventDefault();
+          viewport.scrollLeft = startScroll + delta;
         });
 
         const endDrag = event => {
@@ -306,7 +328,6 @@
           dragging = false;
           viewport.classList.remove('is-dragging');
           try { viewport.releasePointerCapture(event.pointerId); } catch (error) {}
-          render(true);
         };
 
         viewport.addEventListener('pointerup', endDrag);
@@ -316,9 +337,14 @@
           event.preventDefault();
           didDrag = false;
         }, true);
+
+        cloneSet('before');
+        cloneSet('after');
+        measure();
+        jumpTo(setWidth);
         window.addEventListener('resize', () => {
-          current = clamp(current);
-          render(false);
+          measure();
+          jumpTo(setWidth);
         });
       })();
     </script>

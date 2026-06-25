@@ -6,29 +6,128 @@
     <title>UNFRAME | Shop</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="inner-page">
+  <body class="inner-page product-list-page">
     <header class="site-header" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-label="UNFRAME home"><img src="images/logo.png" alt="UNFRAME" /></a>
+      <a class="brand" href="index.html" aria-label="UNFRAME home">
+        <img src="images/logo.png" alt="UNFRAME" />
+      </a>
       <div class="site-header-bottom">
         <nav class="nav nav-left">
-          <div class="nav-item"><a href="board-list.html">ABOUT US</a><div class="dropdown"><a href="board-view.html">Brand Story</a><a href="board-list.html">News</a><a href="board-list.html">Lookbook</a></div></div>
-          <div class="nav-item"><a href="product-list.html">SHOP</a><div class="dropdown"><a href="product-list.html">New Arrivals</a><a href="product-list.html">Best Sellers</a><a href="product-list.html">Outerwear</a><a href="product-list.html">Tops</a><a href="product-list.html">Bottoms</a><a href="product-list.html">Accessories</a><a href="product-list.html">Sale</a></div></div>
-          <div class="nav-item"><a href="board-list.html">COLLECTION</a><div class="dropdown"><a href="board-list.html">25SS</a><a href="board-list.html">25FW</a><a href="board-list.html">Collaboration</a><a href="board-list.html">Archive</a></div></div>
-          <div class="nav-item"><a href="board-view.html">STORES</a><div class="dropdown"><a href="board-view.html">Seoul</a><a href="board-view.html">Japan</a><a href="index.html">Online</a></div></div>
+          <div class="nav-item">
+            <a href="board-list.html">ABOUT US</a>
+            <div class="dropdown">
+              <a href="brand-story.html">Brand Story</a>
+              <a href="board-list.html">Board</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="product-list.html">SHOP</a>
+            <div class="dropdown">
+              <a href="product-list.html#new">New Arrivals</a>
+              <a href="product-list.html#best">Best Sellers</a>
+              <a href="product-list.html#outerwear">Outerwear</a>
+              <a href="product-list.html#tops">Tops</a>
+              <a href="product-list.html#bottoms">Bottoms</a>
+              <a href="product-list.html#accessories">Accessories</a>
+              <a href="product-list.html#sale">Sale</a>
+            </div>
+          </div>
+          <div class="nav-item"><a href="collection.html">COLLECTION</a><div class="dropdown"><a href="collection.html#25ss">25SS</a><a href="collection.html#25fw">25FW</a><a href="collection.html#collaboration">Collaboration</a><a href="collection.html#archive">Archive</a></div></div>
+          <div class="nav-item">
+            <a href="board-view.html">STORES</a>
+            <div class="dropdown">
+              <a href="board-view.html">Seoul</a>
+              <a href="board-view.html">Japan</a>
+              <a href="index.html">Online</a>
+            </div>
+          </div>
         </nav>
-        <nav class="nav nav-icons" aria-label="Utility navigation"><a href="index.html" aria-label="Language"><img src="images/Globe.png" alt="" /></a><a href="product-list.html" aria-label="Search"><img src="images/Search.png" alt="" /></a><a href="cart.html" aria-label="Cart"><img src="images/Shopping cart.png" alt="" /></a><a href="login.html" aria-label="Account"><img src="images/User.png" alt="" /></a></nav>
+        <nav class="nav nav-icons" aria-label="Utility navigation">
+          <a href="index.html" aria-label="Language"><img src="images/Globe.png" alt="" /></a>
+          <a href="search.html" aria-label="Search"><img src="images/Search.png" alt="" /></a>
+          <a href="cart.html" aria-label="Cart"><img src="images/Shopping cart.png" alt="" /></a>
+          <a href="login.html" aria-label="Account"><img src="images/User.png" alt="" /></a>
+        </nav>
       </div>
     </header>
-    <main class="page-shell">
-      <div class="page-title"><p>SHOP</p><h1>New Arrivals</h1></div>
-      <div class="filter-row"><span>ALL</span><span>OUTERWEAR</span><span>TOPS</span><span>BOTTOMS</span><span>ACCESSORIES</span></div>
-      <section class="product-grid">
-        <a class="shop-card" href="product-detail.html"><img src="images/image 126.png" alt="" /><strong>UNFRAME FIELD JACKET</strong><span>KRW 188,000</span></a>
-        <a class="shop-card" href="product-detail.html"><img src="images/image 142.png" alt="" /><strong>STRUCTURED HALF SHIRT</strong><span>KRW 96,000</span></a>
-        <a class="shop-card" href="product-detail.html"><img src="images/Rectangle 34625187.png" alt="" /><strong>WIDE POCKET TROUSER</strong><span>KRW 142,000</span></a>
-        <a class="shop-card" href="product-detail.html"><img src="images/image 126.png" alt="" /><strong>LOGO CAP BLACK</strong><span>KRW 42,000</span></a>
+    <main class="shop-list-shell">
+      <div class="shop-list-head">
+        <p>SHOP</p>
+        <h1>ALL PRODUCTS</h1>
+      </div>
+      <nav class="shop-category-filter" aria-label="Shop categories">
+        <button class="is-active" type="button" data-filter="all">ALL PRODUCTS</button>
+        <button type="button" data-filter="new">NEW ARRIVALS</button>
+        <button type="button" data-filter="best">BEST SELLERS</button>
+        <button type="button" data-filter="outerwear">OUTERWEAR</button>
+        <button type="button" data-filter="tops">TOPS</button>
+        <button type="button" data-filter="bottoms">BOTTOMS</button>
+        <button type="button" data-filter="accessories">ACCESSORIES</button>
+        <button type="button" data-filter="sale">SALE</button>
+      </nav>
+      <section class="shop-list-grid" aria-label="Products">
+        <a class="shop-list-card" href="product-detail.html" data-category="new best tops">
+          <div class="shop-list-image"><img src="images/item01.png" alt="Studio Polo" /></div>
+          <strong>STUDIO POLO</strong>
+          <span>KRW 69,000</span>
+        </a>
+        <a class="shop-list-card" href="product-detail.html" data-category="new best outerwear">
+          <div class="shop-list-image"><img src="images/item02.png" alt="Utility Crewneck" /></div>
+          <strong>UTILITY CREWNECK</strong>
+          <span>KRW 96,000</span>
+        </a>
+        <a class="shop-list-card" href="product-detail.html" data-category="new tops sale">
+          <div class="shop-list-image"><img src="images/item03.png" alt="System Tee" /></div>
+          <strong>SYSTEM TEE</strong>
+          <span class="shop-price">KRW 54,000</span>
+          <span class="shop-sale-price"><em>KRW 54,000</em><b>KRW 39,000</b><i>28% OFF</i></span>
+        </a>
+        <a class="shop-list-card" href="product-detail.html" data-category="bottoms best">
+          <div class="shop-list-image"><img src="images/bottom.jpg" alt="Layered Denim Trouser" /></div>
+          <strong>LAYERED DENIM TROUSER</strong>
+          <span>KRW 132,000</span>
+        </a>
+        <a class="shop-list-card" href="product-detail.html" data-category="accessories">
+          <div class="shop-list-image"><img src="images/accessories.jpg" alt="Utility Cross Bag" /></div>
+          <strong>UTILITY CROSS BAG</strong>
+          <span>KRW 78,000</span>
+        </a>
+        <a class="shop-list-card" href="product-detail.html" data-category="outerwear sale">
+          <div class="shop-list-image"><img src="images/outerwear.jpg" alt="Washed Field Jacket" /></div>
+          <strong>WASHED FIELD JACKET</strong>
+          <span class="shop-price">KRW 168,000</span>
+          <span class="shop-sale-price"><em>KRW 168,000</em><b>KRW 129,000</b><i>23% OFF</i></span>
+        </a>
       </section>
     </main>
+    <script>
+      (() => {
+        const buttons = document.querySelectorAll('[data-filter]');
+        const cards = document.querySelectorAll('.shop-list-card');
+        const title = document.querySelector('.shop-list-head h1');
+        const applyFilter = filter => {
+          const target = [...buttons].find(button => button.dataset.filter === filter) || buttons[0];
+          if (!target) return;
+          document.body.classList.toggle('is-sale-view', target.dataset.filter === 'sale');
+          if (title) title.textContent = target.textContent;
+          buttons.forEach(item => item.classList.toggle('is-active', item === target));
+          cards.forEach(card => {
+            const categories = card.dataset.category || '';
+            card.hidden = target.dataset.filter !== 'all' && !categories.split(' ').includes(target.dataset.filter);
+          });
+        };
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            history.replaceState(null, '', `#${button.dataset.filter}`);
+            applyFilter(button.dataset.filter);
+          });
+        });
+        window.addEventListener('hashchange', () => {
+          applyFilter(location.hash.replace('#', '') || 'all');
+        });
+        applyFilter(location.hash.replace('#', '') || 'all');
+      })();
+    </script>
     <footer class="footer compact-footer"><div class="footer-brand"><img src="images/logo.png" alt="UNFRAME" /></div><p class="copyright">Copyright © 2026 UNFRAME. All rights reserved.</p></footer>
   </body>
 </html>
