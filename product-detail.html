@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="ko">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>UNFRAME | Detail</title><link rel="stylesheet" href="styles.css" /></head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNFRAME | Detail</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
   <body class="inner-page">
     <header class="site-header" aria-label="Main navigation">
       <a class="brand" href="index.html" aria-label="UNFRAME home">
@@ -16,7 +21,7 @@
             </div>
           </div>
           <div class="nav-item">
-            <a href="product-list.html">SHOP</a>
+            <a href="product-list.html#all">SHOP</a>
             <div class="dropdown">
               <a href="product-list.html#new">New Arrivals</a>
               <a href="product-list.html#best">Best Sellers</a>
@@ -44,11 +49,215 @@
         </nav>
       </div>
     </header>
+
     <main class="page-shell detail-layout">
-      <section class="detail-gallery"><img src="images/image 126.png" alt="" /><img src="images/image 142.png" alt="" /><img class="detail-wide" src="images/Rectangle 34625187.png" alt="" /></section>
-      <aside class="detail-info"><p>NEW ARRIVAL</p><h1>UNFRAME FIELD JACKET</h1><strong>KRW 188,000</strong><dl><dt>Color</dt><dd>Black</dd><dt>Size</dt><dd>S / M / L</dd><dt>Shipping</dt><dd>2-3 business days</dd></dl><div class="button-stack"><a href="cart.html">ADD TO CART</a><a href="wishlist.html">WISH LIST</a><a href="cart.html">BUY NOW</a></div></aside>
+      <section class="detail-gallery" aria-label="Product images">
+        <div class="detail-shot detail-shot-primary">
+          <img data-product-image src="images/product-outerwear-streetwear-cutout.png" alt="Shadow Cargo Bomber product image" />
+        </div>
+        <div class="detail-shot detail-shot-model">
+          <img data-model-image src="images/detail-look-01.jpg" alt="Shadow Cargo Bomber model wearing shot" />
+        </div>
+        <div class="detail-shot detail-wide">
+          <img data-style-image src="images/product-bottoms-streetwear-cutout.png" alt="Recommended styling item" />
+        </div>
+      </section>
+
+      <aside class="detail-info">
+        <p data-detail-label>NEW ARRIVAL</p>
+        <h1 data-detail-title>SHADOW CARGO BOMBER</h1>
+        <strong data-detail-price>KRW 189,000</strong>
+        <dl>
+          <dt>Color</dt>
+          <dd data-detail-color>Washed Black</dd>
+          <dt>Size</dt>
+          <dd><div class="size-picker" role="radiogroup" aria-label="Select size" data-size-picker></div></dd>
+          <dt>Selected</dt>
+          <dd><span data-selected-size>M</span></dd>
+          <dt>Shipping</dt>
+          <dd>2-3 business days</dd>
+        </dl>
+        <div class="button-stack"><a href="cart.html">ADD TO CART</a><a href="wishlist.html">WISH LIST</a><a href="cart.html">BUY NOW</a></div>
+      </aside>
     </main>
-    <footer class="footer compact-footer"><div class="footer-brand"><img src="images/logo.png" alt="UNFRAME" /></div><p class="copyright">Copyright © 2026 UNFRAME. All rights reserved.</p></footer>
+
+    <footer class="footer compact-footer"><div class="footer-brand"><img src="images/logo.png" alt="UNFRAME" /></div><p class="copyright">Copyright &copy; 2026 UNFRAME. All rights reserved.</p></footer>
+
+    <script>
+      (() => {
+        const products = {
+          'shadow-cargo-bomber': {
+            label: 'NEW ARRIVAL',
+            title: 'SHADOW CARGO BOMBER',
+            price: 'KRW 189,000',
+            color: 'Washed Black',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-outerwear-streetwear-cutout.png',
+            model: 'images/detail-look-01.jpg',
+            style: 'images/product-bottoms-streetwear-cutout.png'
+          },
+          'hooded-work-jacket': {
+            label: 'NEW ARRIVAL',
+            title: 'HOODED WORK JACKET',
+            price: 'KRW 176,000',
+            color: 'Faded Black',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-outerwear-streetwear-02-cutout.png',
+            model: 'images/detail-look-01.jpg',
+            style: 'images/product-tops-streetwear-cutout.png'
+          },
+          'cropped-tech-puffer': {
+            label: 'SALE',
+            title: 'CROPPED TECH PUFFER',
+            price: 'KRW 149,000',
+            color: 'Graphite',
+            sizes: ['S', 'M', 'L'],
+            image: 'images/product-outerwear-streetwear-03-cutout.png',
+            model: 'images/detail-look-01.jpg',
+            style: 'images/product-bottoms-streetwear-03-cutout.png'
+          },
+          'layered-static-tee': {
+            label: 'BEST SELLER',
+            title: 'LAYERED STATIC TEE',
+            price: 'KRW 82,000',
+            color: 'Washed Black / White',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-tops-streetwear-cutout.png',
+            model: 'images/detail-look-02.jpg',
+            style: 'images/product-bottoms-streetwear-02-cutout.png'
+          },
+          'heavyweight-crop-hoodie': {
+            label: 'NEW ARRIVAL',
+            title: 'HEAVYWEIGHT CROP HOODIE',
+            price: 'KRW 118,000',
+            color: 'Charcoal',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-tops-streetwear-02-cutout.png',
+            model: 'images/detail-look-02.jpg',
+            style: 'images/product-accessories-streetwear-02-cutout.png'
+          },
+          'mesh-field-jersey': {
+            label: 'SALE',
+            title: 'MESH FIELD JERSEY',
+            price: 'KRW 69,000',
+            color: 'Charcoal / Bone',
+            sizes: ['S', 'M', 'L'],
+            image: 'images/product-tops-streetwear-03-cutout.png',
+            model: 'images/detail-look-02.jpg',
+            style: 'images/product-bottoms-streetwear-03-cutout.png'
+          },
+          'parachute-cargo-pants': {
+            label: 'NEW ARRIVAL',
+            title: 'PARACHUTE CARGO PANTS',
+            price: 'KRW 142,000',
+            color: 'Faded Graphite',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-bottoms-streetwear-cutout.png',
+            model: 'images/detail-look-03.jpg',
+            style: 'images/product-outerwear-streetwear-cutout.png'
+          },
+          'washed-carpenter-denim': {
+            label: 'BEST SELLER',
+            title: 'WASHED CARPENTER DENIM',
+            price: 'KRW 138,000',
+            color: 'Washed Black',
+            sizes: ['S', 'M', 'L'],
+            image: 'images/product-bottoms-streetwear-02-cutout.png',
+            model: 'images/detail-look-03.jpg',
+            style: 'images/product-tops-streetwear-cutout.png'
+          },
+          'ripstop-track-cargo': {
+            label: 'NEW ARRIVAL',
+            title: 'RIPSTOP TRACK CARGO',
+            price: 'KRW 128,000',
+            color: 'Dark Graphite',
+            sizes: ['S', 'M', 'L', 'XL'],
+            image: 'images/product-bottoms-streetwear-03-cutout.png',
+            model: 'images/detail-look-03.jpg',
+            style: 'images/product-tops-streetwear-03-cutout.png'
+          },
+          'tactical-cross-bag': {
+            label: 'BEST SELLER',
+            title: 'TACTICAL CROSS BAG',
+            price: 'KRW 78,000',
+            color: 'Black',
+            sizes: ['ONE SIZE'],
+            image: 'images/product-accessories-cutout.png',
+            model: 'images/detail-look-04.jpg',
+            style: 'images/product-outerwear-streetwear-cutout.png'
+          },
+          'modular-sling-pack': {
+            label: 'NEW ARRIVAL',
+            title: 'MODULAR SLING PACK',
+            price: 'KRW 92,000',
+            color: 'Black',
+            sizes: ['ONE SIZE'],
+            image: 'images/product-accessories-streetwear-02-cutout.png',
+            model: 'images/detail-look-04.jpg',
+            style: 'images/product-tops-streetwear-02-cutout.png'
+          },
+          'washed-panel-cap': {
+            label: 'SALE',
+            title: 'WASHED PANEL CAP',
+            price: 'KRW 36,000',
+            color: 'Washed Black',
+            sizes: ['ONE SIZE'],
+            image: 'images/product-accessories-streetwear-03-cutout.png',
+            model: 'images/detail-look-04.jpg',
+            style: 'images/product-accessories-streetwear-02-cutout.png'
+          }
+        };
+
+        const slug = new URLSearchParams(window.location.search).get('product') || 'shadow-cargo-bomber';
+        const product = products[slug] || products['shadow-cargo-bomber'];
+        const setText = (selector, value) => {
+          const node = document.querySelector(selector);
+          if (node) node.textContent = value;
+        };
+        const setImage = (selector, src, alt) => {
+          const image = document.querySelector(selector);
+          if (!image) return;
+          image.src = src;
+          image.alt = alt;
+        };
+
+        document.title = `UNFRAME | ${product.title}`;
+        setText('[data-detail-label]', product.label);
+        setText('[data-detail-title]', product.title);
+        setText('[data-detail-price]', product.price);
+        setText('[data-detail-color]', product.color);
+        setImage('[data-product-image]', product.image, `${product.title} product image`);
+        setImage('[data-model-image]', product.model, `${product.title} model wearing shot`);
+        setImage('[data-style-image]', product.style, `${product.title} styling item`);
+
+        const picker = document.querySelector('[data-size-picker]');
+        const selected = document.querySelector('[data-selected-size]');
+        const defaultSize = product.sizes.includes('M') ? 'M' : product.sizes[0];
+        if (selected) selected.textContent = defaultSize;
+        if (picker) {
+          picker.innerHTML = '';
+          product.sizes.forEach(size => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.role = 'radio';
+            button.dataset.size = size;
+            button.textContent = size;
+            const active = size === defaultSize;
+            button.classList.toggle('is-selected', active);
+            button.setAttribute('aria-checked', String(active));
+            button.addEventListener('click', () => {
+              [...picker.querySelectorAll('button')].forEach(item => {
+                const isActive = item === button;
+                item.classList.toggle('is-selected', isActive);
+                item.setAttribute('aria-checked', String(isActive));
+              });
+              if (selected) selected.textContent = size;
+            });
+            picker.append(button);
+          });
+        }
+      })();
+    </script>
     <script src="search.js"></script>
   </body>
 </html>
