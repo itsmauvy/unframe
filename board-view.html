@@ -34,11 +34,10 @@
           </div>
           <div class="nav-item"><a href="collection.html">COLLECTION</a><div class="dropdown"><a href="collection.html#25ss">25SS</a><a href="collection.html#25fw">25FW</a><a href="collection.html#collaboration">Collaboration</a><a href="collection.html#archive">Archive</a></div></div>
           <div class="nav-item">
-            <a href="board-view.html">STORES</a>
+            <a href="store.html">STORES</a>
             <div class="dropdown">
-              <a href="board-view.html">Seoul</a>
-              <a href="board-view.html">Japan</a>
-              <a href="index.html">Online</a>
+              <a href="store.html#seoul">Seoul</a>
+              <a href="store.html#japan">Japan</a>
             </div>
           </div>
         </nav>
@@ -52,59 +51,201 @@
     </header>
 
     <main class="board-view-shell">
-      <div class="board-view-label">NOTICE</div>
+      <div class="board-view-label" id="bvLabel">NOTICE</div>
       <article class="board-view-article">
         <header class="board-view-header">
-          <h1>UNFRAME 25SS COLLECTION OPEN</h1>
+          <h1 id="bvTitle">UNFRAME 25SS COLLECTION OPEN</h1>
           <dl>
             <div>
               <dt>WRITER</dt>
-              <dd>UNFRAME</dd>
+              <dd id="bvWriter">UNFRAME</dd>
             </div>
             <div>
               <dt>DATE</dt>
-              <dd>2026.06.25</dd>
+              <dd id="bvDate">2026.06.25</dd>
             </div>
             <div>
               <dt>HIT</dt>
-              <dd>128</dd>
+              <dd id="bvHit">128</dd>
             </div>
           </dl>
         </header>
 
-        <div class="board-view-content">
-          <img src="images/Rectangle 34625187.png" alt="" />
-          <p>
-            UNFRAME 25SS collection is now available online. This layout is prepared for Cafe24 board detail pages,
-            including notices, lookbooks, store guides, and customer information.
-          </p>
-          <p>
-            Replace this area with Cafe24 board content modules later. The spacing, title area, meta information,
-            image block, and action buttons are already structured for a clean storefront board page.
-          </p>
+        <div class="board-view-content" id="bvContent">
+          <p>Loading…</p>
         </div>
 
-        <div class="board-view-files">
+        <div class="board-view-files" id="bvFiles" hidden>
           <span>ATTACHMENT</span>
-          <a href="board-view.html">unframe-25ss-guide.pdf</a>
+          <a href="board-view.html" id="bvFile">file</a>
         </div>
 
         <nav class="board-view-pager" aria-label="Post navigation">
-          <a href="board-view.html"><span>PREV</span><strong>SEONGSU SHOWROOM GUIDE</strong></a>
-          <a href="board-view.html"><span>NEXT</span><strong>SHIPPING &amp; RETURNS POLICY</strong></a>
+          <a id="bvPrev" href="board-list.html"><span>PREV</span><strong>—</strong></a>
+          <a id="bvNext" href="board-list.html"><span>NEXT</span><strong>—</strong></a>
         </nav>
 
         <div class="board-view-actions">
-          <a href="board-list.html">LIST</a>
+          <a href="board-list.html" id="bvList">LIST</a>
           <a href="board-write.html">WRITE</a>
           <a href="board-write.html">MODIFY</a>
         </div>
       </article>
     </main>
 
+    <script>
+      (() => {
+        const POSTS = {
+          "notice-1": {
+            cat: "notice", title: "UNFRAME 25SS COLLECTION OPEN",
+            writer: "UNFRAME", date: "2026.06.10", hit: 214,
+            image: "images/Rectangle 34625187.png",
+            body: [
+              "The UNFRAME 25SS collection is now available online and in stores. This season explores utility silhouettes reworked for everyday wear — relaxed cargos, layered shirting, and lightweight outerwear in a muted field palette.",
+              "New pieces drop weekly through July. Members get early access 24 hours before each release; sign up or log in to receive drop notifications by email and KakaoTalk."
+            ],
+            file: "unframe-25ss-lookbook.pdf"
+          },
+          "notice-2": {
+            cat: "notice", title: "SEONGSU SHOWROOM GUIDE",
+            writer: "UNFRAME", date: "2026.06.18", hit: 96,
+            image: "images/lookbook2.jpg",
+            body: [
+              "Our Seongsu flagship is open daily 11:00–20:00. You can try on the full current collection across two floors, with the complete archive available on request.",
+              "Address: 12, Seongsu-illo, Seongdong-gu, Seoul. The nearest station is Seongsu (Line 2), Exit 3, a 5-minute walk. Paid parking is available in the building; we recommend public transit on weekends."
+            ]
+          },
+          "notice-3": {
+            cat: "notice", title: "SHIPPING & RETURNS POLICY",
+            writer: "UNFRAME", date: "2026.06.25", hit: 128,
+            body: [
+              "Domestic orders are dispatched within 1–2 business days and typically arrive in 2–3 days. International shipping takes 2–5 business days depending on destination. Free domestic shipping on orders over ₩100,000.",
+              "Returns and exchanges are accepted within 14 days of delivery, provided items are unworn with original tags attached. Sale items and made-to-order pieces are final sale. To start a return, contact support@unframe.co.kr with your order number."
+            ],
+            file: "unframe-returns-form.pdf"
+          },
+          "faq-1": {
+            cat: "faq", title: "HOW SHOULD I CHOOSE A SIZE?",
+            writer: "UNFRAME", date: "2026.06.08", hit: 134,
+            body: [
+              "Each product page includes a detailed measurement table (chest, length, shoulder, sleeve) in centimeters, measured flat. Compare these to a garment you already own for the most reliable fit.",
+              "Our outerwear and tops are cut with a relaxed fit. If you are between sizes or prefer a closer fit, we recommend sizing down. Still unsure? Message us on KakaoTalk and we'll recommend a size based on your measurements."
+            ]
+          },
+          "faq-2": {
+            cat: "faq", title: "WHAT IS THE RETURN PERIOD?",
+            writer: "UNFRAME", date: "2026.06.15", hit: 88,
+            body: [
+              "You may request a return or exchange within 14 days of receiving your order. Items must be unworn, unwashed, and have all original tags attached.",
+              "Return shipping is free if the item is defective or incorrect; otherwise the customer covers return shipping. Refunds are processed within 3–5 business days after we receive and inspect the item."
+            ]
+          },
+          "faq-3": {
+            cat: "faq", title: "HOW DO I CHECK MY ORDER STATUS?",
+            writer: "UNFRAME", date: "2026.06.22", hit: 72,
+            body: [
+              "Log in and open My Page → Orders to see real-time status for every order: Payment Confirmed, Preparing, Shipped, and Delivered. A tracking number appears once your parcel leaves our warehouse.",
+              "Guest orders can be tracked from the order confirmation email. If the status hasn't updated in over 3 business days, contact support@unframe.co.kr with your order number."
+            ]
+          },
+          "qna-1": {
+            cat: "qna", title: "CAN I CHANGE MY SHIPPING ADDRESS?",
+            writer: "LEE***", date: "2026.06.13", hit: 19,
+            body: [
+              "Q. I just placed an order but entered the wrong address. Can it still be changed?",
+              "A. Yes — as long as the order status is still \"Payment Confirmed\" or \"Preparing,\" we can update the address. Please contact us as soon as possible with your order number. Once the parcel has shipped, the address can no longer be changed and you'll need to coordinate with the courier."
+            ]
+          },
+          "qna-2": {
+            cat: "qna", title: "EXCHANGE REQUEST AFTER DELIVERY",
+            writer: "KIM***", date: "2026.06.20", hit: 21,
+            body: [
+              "Q. The jacket I received is slightly large. How do I exchange it for a smaller size?",
+              "A. Exchanges are accepted within 14 days of delivery for unworn items with tags attached. Request an exchange from My Page → Orders, or email support@unframe.co.kr. Subject to stock; if your size is sold out we'll process a refund instead."
+            ]
+          },
+          "qna-3": {
+            cat: "qna", title: "RESTOCK SCHEDULE FOR SYSTEM TEE",
+            writer: "MIN***", date: "2026.06.24", hit: 16,
+            body: [
+              "Q. The System Tee in black is sold out. Will it be restocked?",
+              "A. The black System Tee is scheduled to restock in the first week of July. Tap \"Notify me\" on the product page to get an email the moment it's back in stock."
+            ]
+          }
+        };
+
+        const ORDER = {
+          notice: ["notice-1", "notice-2", "notice-3"],
+          faq: ["faq-1", "faq-2", "faq-3"],
+          qna: ["qna-1", "qna-2", "qna-3"]
+        };
+        const LABELS = { notice: "NOTICE", faq: "FAQ", qna: "Q&A" };
+
+        const params = new URLSearchParams(location.search);
+        const id = POSTS[params.get("id")] ? params.get("id") : "notice-1";
+        const post = POSTS[id];
+
+        const setText = (elId, value) => {
+          const el = document.getElementById(elId);
+          if (el) el.textContent = value;
+        };
+
+        setText("bvLabel", LABELS[post.cat]);
+        setText("bvTitle", post.title);
+        setText("bvWriter", post.writer);
+        setText("bvDate", post.date);
+        setText("bvHit", post.hit);
+        document.title = "UNFRAME | " + post.title;
+
+        const content = document.getElementById("bvContent");
+        content.innerHTML = "";
+        if (post.image) {
+          const img = document.createElement("img");
+          img.src = post.image;
+          img.alt = "";
+          content.appendChild(img);
+        }
+        post.body.forEach(text => {
+          const p = document.createElement("p");
+          p.textContent = text;
+          content.appendChild(p);
+        });
+
+        const files = document.getElementById("bvFiles");
+        if (post.file) {
+          document.getElementById("bvFile").textContent = post.file;
+          files.hidden = false;
+        } else {
+          files.hidden = true;
+        }
+
+        document.getElementById("bvList").href = "board-list.html#" + post.cat;
+
+        const order = ORDER[post.cat];
+        const idx = order.indexOf(id);
+        const wirePager = (anchorId, neighborId) => {
+          const anchor = document.getElementById(anchorId);
+          const strong = anchor.querySelector("strong");
+          if (neighborId) {
+            anchor.href = "board-view.html?id=" + neighborId;
+            strong.textContent = POSTS[neighborId].title;
+            anchor.removeAttribute("aria-disabled");
+            anchor.style.visibility = "";
+          } else {
+            strong.textContent = "—";
+            anchor.removeAttribute("href");
+            anchor.setAttribute("aria-disabled", "true");
+          }
+        };
+        wirePager("bvPrev", idx > 0 ? order[idx - 1] : null);
+        wirePager("bvNext", idx < order.length - 1 ? order[idx + 1] : null);
+      })();
+    </script>
+
     <footer class="footer compact-footer">
       <div class="footer-brand"><img src="images/logo.png" alt="UNFRAME" /></div>
       <p class="copyright">Copyright © 2026 UNFRAME. All rights reserved.</p>
     </footer>
+    <script src="search.js"></script>
   </body>
 </html>

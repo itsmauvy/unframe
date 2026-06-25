@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,7 @@
           <div class="nav-item"><a href="board-list.html">ABOUT US</a><div class="dropdown"><a href="brand-story.html">Brand Story</a><a href="board-list.html">Board</a></div></div>
           <div class="nav-item"><a href="product-list.html">SHOP</a><div class="dropdown"><a href="product-list.html#new">New Arrivals</a><a href="product-list.html#best">Best Sellers</a><a href="product-list.html#outerwear">Outerwear</a><a href="product-list.html#tops">Tops</a><a href="product-list.html#bottoms">Bottoms</a><a href="product-list.html#accessories">Accessories</a><a href="product-list.html#sale">Sale</a></div></div>
           <div class="nav-item"><a href="collection.html">COLLECTION</a><div class="dropdown"><a href="collection.html#25ss">25SS</a><a href="collection.html#25fw">25FW</a><a href="collection.html#collaboration">Collaboration</a><a href="collection.html#archive">Archive</a></div></div>
-          <div class="nav-item"><a href="board-view.html">STORES</a><div class="dropdown"><a href="board-view.html">Seoul</a><a href="board-view.html">Japan</a><a href="index.html">Online</a></div></div>
+          <div class="nav-item"><a href="store.html">STORES</a><div class="dropdown"><a href="store.html#seoul">Seoul</a><a href="store.html#japan">Japan</a></div></div>
         </nav>
         <nav class="nav nav-icons" aria-label="Utility navigation">
           <a href="index.html" aria-label="Language"><img src="images/Globe.png" alt="" /></a>
@@ -31,7 +31,6 @@
       <section class="collection-head">
         <p>COLLECTION</p>
         <h1>SEASON ARCHIVE</h1>
-        <span>Hover to slow the rail. Click an image to view item detail.</span>
       </section>
 
       <section class="collection-rail" aria-label="Collection lookbook">
@@ -89,5 +88,53 @@
         </div>
       </section>
     </main>
+
+    <script>
+      (function () {
+        document.documentElement.classList.remove("no-js");
+
+        const rail = document.querySelector(".collection-rail");
+        const track = document.querySelector(".collection-track");
+        if (!rail || !track) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const NORMAL = 1; // base speed
+        const SLOW = 0.4; // speed while hovering the rail
+        let speed = NORMAL;
+        let speedTarget = NORMAL;
+
+        // The track holds two identical halves, so wrapping at half its width
+        // is seamless. Derive px/sec from the old 34s-per-half timing.
+        let half = 0;
+        let pxPerSec = 0;
+        function measure() {
+          half = track.scrollWidth / 2;
+          pxPerSec = half / 34;
+        }
+        measure();
+        window.addEventListener("resize", measure);
+        window.addEventListener("load", measure);
+
+        rail.addEventListener("pointerenter", () => { speedTarget = SLOW; });
+        rail.addEventListener("pointerleave", () => { speedTarget = NORMAL; });
+
+        let offset = 0;
+        let last = null;
+        function frame(now) {
+          if (last === null) last = now;
+          const dt = (now - last) / 1000;
+          last = now;
+          // Ease speed toward the target so hover in/out is gradual and the
+          // position never jumps the way an animation-duration swap would.
+          speed += (speedTarget - speed) * Math.min(1, dt * 6);
+          offset += pxPerSec * speed * dt;
+          if (half > 0 && offset >= half) offset -= half;
+          track.style.transform = "translateX(" + -offset + "px)";
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      })();
+    </script>
+    <script src="search.js"></script>
   </body>
 </html>
